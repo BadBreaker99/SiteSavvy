@@ -8,3 +8,55 @@ nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; 
 form input, form textarea { display: block; width: 100%; margin: 10px 0; padding: 10px; }
 button { background: #c2185b; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
 button:hover { background: #ad1457; }
+.responsive-navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-container .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.nav-container ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+.nav-container ul li a {
+  color: white;
+  text-decoration: none;
+}
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+@media screen and (max-width: 768px) {
+  .nav-container ul {
+    display: none;
+    flex-direction: column;
+    background: #444;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    padding: 10px;
+  }
+  .nav-container ul.show {
+    display: flex;
+  }
+  .burger {
+    display: flex;
+  }
+}
