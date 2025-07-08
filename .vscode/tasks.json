@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "📤 Git Push",
+      "type": "shell",
+      "command": "git add . && git commit -m \"🔄 Ενημέρωση\" && git push",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Κάνει add, commit και push στο GitHub"
+    }
+  ]
+}
