@@ -1,0 +1,10 @@
+// === /public/css/style.css ===
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fefefe; color: #333; }
+nav { background: #222; padding: 10px; text-align: center; }
+nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+.template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+.card { background: white; padding: 10px; border: 1px solid #ccc; text-align: center; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.card img { width: 100%; height: auto; border-radius: 6px; }
+form input, form textarea { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+button { background: #c2185b; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+button:hover { background: #ad1457; }

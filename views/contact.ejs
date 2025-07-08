@@ -1,0 +1,19 @@
+// === /views/contact.ejs ===
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <%- include('partials/head', { title }) %>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <main>
+    <h1>📞 Επικοινωνήστε Μαζί Μας</h1>
+    <form action="mailto:panosmark6@gmail.com">
+      <input type="text" name="name" placeholder="Όνομα">
+      <input type="email" name="email" placeholder="Email">
+      <textarea name="message" placeholder="Μήνυμα"></textarea>
+      <button type="submit">Αποστολή</button>
+    </form>
+  </main>
+</body>
+</html>

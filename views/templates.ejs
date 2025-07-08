@@ -1,14 +1,28 @@
-<h1>🎨 Επέλεξε το Template σου</h1>
-<div class="template-grid">
-  <% templates.forEach(tpl => { %>
-    <div class="card">
-      <img src="<%= tpl.thumbnail %>" alt="<%= tpl.name %>" />
-      <div class="info">
-        <p><%= tpl.name %></p>
-        <p><%= tpl.description %></p>
-        <a href="<%= tpl.previewUrl %>" target="_blank">🔍 Preview</a>
-        <a href="mailto:panosmark6@gmail.com?subject=Θέλω το <%= tpl.name %>">✅ Επιλογή</a>
-      </div>
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <%- include('partials/head', { title }) %>
+  <link rel="stylesheet" href="/css/templates.css"> <!-- optional for custom styling -->
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <main class="container">
+    <h1 class="page-title">Επιλέξτε Template</h1>
+    <div class="templates-grid">
+      <% templates.forEach(t => { %>
+        <div class="template-box">
+          <img src="<%= t.thumbnail %>" alt="<%= t.name %>">
+          <div class="template-info">
+            <h3><%= t.name %></h3>
+            <p><%= t.description %></p>
+            <a class="preview-button" href="/preview/<%= t.id %>" target="_blank">🔍 Προεπισκόπηση</a>
+          </div>
+        </div>
+      <% }) %>
     </div>
-  <% }) %>
-</div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
