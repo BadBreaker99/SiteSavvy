@@ -1,0 +1,16 @@
+[
+  {
+    "id": "template1",
+    "title": "Κομμωτήριο",
+    "description": "Template για Hair Studio",
+    "thumbnail": "/img/templates/thumb-template1.jpg",
+    "previewUrl": "/preview/template1"
+  },
+  {
+    "id": "template2",
+    "title": "Λογιστικό Γραφείο",
+    "description": "Template για Λογιστικό Γραφείο",
+    "thumbnail": "/img/templates/thumb-template2.jpg",
+    "previewUrl": "/preview/template2"
+  }
+]

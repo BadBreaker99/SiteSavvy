@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Περιβάλλοντα (API Keys, DB URIs, κτλ)
+.env
+
+# logs
+logs/
+*.log
+
+# npm-debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VSCode config
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db

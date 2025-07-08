@@ -1,0 +1,14 @@
+<h1>🎨 Επέλεξε το Template σου</h1>
+<div class="template-grid">
+  <% templates.forEach(tpl => { %>
+    <div class="card">
+      <img src="<%= tpl.thumbnail %>" alt="<%= tpl.name %>" />
+      <div class="info">
+        <p><%= tpl.name %></p>
+        <p><%= tpl.description %></p>
+        <a href="<%= tpl.previewUrl %>" target="_blank">🔍 Preview</a>
+        <a href="mailto:panosmark6@gmail.com?subject=Θέλω το <%= tpl.name %>">✅ Επιλογή</a>
+      </div>
+    </div>
+  <% }) %>
+</div>
