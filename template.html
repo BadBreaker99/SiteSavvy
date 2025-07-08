@@ -1,0 +1,141 @@
+<!-- Template 1: Κομμωτήριο -->
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Studio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fefefe;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #c2185b, #ad1457);
+      color: white;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      animation: fadeIn 1s ease-out;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    h2 {
+      color: #c2185b;
+      margin-bottom: 16px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: '💇‍♀️ ';
+    }
+    p {
+      line-height: 1.6;
+    }
+    .appointment {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .appointment form {
+      margin-top: 20px;
+    }
+    .appointment label, .appointment input, .appointment select, .appointment button {
+      display: block;
+      margin: 10px auto;
+      font-size: 1em;
+    }
+    .appointment input, .appointment select {
+      padding: 8px;
+      width: 250px;
+    }
+    .appointment button {
+      padding: 10px 20px;
+      background: #c2185b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .appointment button:hover {
+      background: #ad1457;
+    }
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hair Studio</h1>
+    <p>Επαγγελματική περιποίηση μαλλιών από το 2010</p>
+  </header>
+  <section>
+    <h2>💈 Υπηρεσίες</h2>
+    <ul>
+      <li>Κούρεμα Ανδρικό / Γυναικείο</li>
+      <li>Βαφή / Styling / Χτένισμα</li>
+      <li>Συμβουλευτική Λουκ</li>
+    </ul>
+
+    <h2>📍 Επικοινωνία</h2>
+    <p>Οδός Παραδείσου 24, Αθήνα</p>
+    <p>Τηλ: 210 0000000</p>
+    <p>Email: info@hairstudio.gr</p>
+
+    <div class="appointment">
+      <h2>📅 Κλείσε Ραντεβού</h2>
+      <form action="/api/book" method="POST">
+        <label for="date">Ημερομηνία:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Ώρα:</label>
+        <select id="time" name="time" required>
+          <option value="">-- Επιλέξτε Ώρα --</option>
+          <option>10:00</option>
+          <option>11:00</option>
+          <option>12:00</option>
+          <option>13:00</option>
+          <option>17:00</option>
+          <option>18:00</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Επιβεβαίωση Κράτησης</button>
+      </form>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 Hair Studio — Δημιουργία με Στυλ
+  </footer>
+</body>
+</html>
