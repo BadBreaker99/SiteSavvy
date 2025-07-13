@@ -1,19 +1,19 @@
 
-<!DOCTYPE html>
-<html lang="el">
-<head>
-  <%- include('partials/head', { title }) %>
-</head>
-<body>
-  <%- include('partials/navbar') %>
-  <main>
-    <h1>📞 Επικοινωνήστε Μαζί Μας</h1>
-    <form action="mailto:panosmark6@gmail.com">
-      <input type="text" name="name" placeholder="Όνομα">
-      <input type="email" name="email" placeholder="Email">
-      <textarea name="message" placeholder="Μήνυμα"></textarea>
-      <button type="submit">Αποστολή</button>
-    </form>
-  </main>
-</body>
-</html>
+<% layout('layout') -%>
+
+
+<form id="appointmentForm">
+  <input type="text" name="name" placeholder="Όνομα" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Μήνυμα" required></textarea>
+  
+  <input type="date" name="date" id="date" required>
+  <select name="time" id="time" required>
+    <option value="">Επέλεξε ώρα</option>
+  </select>
+
+  <button type="submit">Κλείσε Ραντεβού</button>
+</form>
+
+<script src="/scripts/contact.js" defer></script>
+

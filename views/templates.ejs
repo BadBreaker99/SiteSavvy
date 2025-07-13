@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>
-  <%- include('partials/head', { title }) %>
-  <link rel="stylesheet" href="/css/templates.css"> <!-- optional for custom styling -->
-</head>
-<body>
-  <%- include('partials/navbar') %>
+<% layout('layout') -%>
 
   <main class="container">
     <h1 class="page-title">Επιλέξτε Template</h1>
@@ -22,7 +15,6 @@
       <% }) %>
     </div>
   </main>
+  <script src="/scripts/templates.js" defer></script>
+  
 
-  <%- include('partials/footer') %>
-</body>
-</html>

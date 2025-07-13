@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -16,9 +17,20 @@
     "url": "https://github.com/BadBreaker99/SiteSavvy/issues"
   },
   "homepage": "https://github.com/BadBreaker99/SiteSavvy#readme",
-  "description": "",
   "dependencies": {
+    "all": "^0.0.0",
+    "dotenv": "^17.2.0",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "ejs-mate": "^4.0.0",
+    "env": "^0.0.2",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "nodemailer": "^7.0.5"
+  },
+  "description": "",
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
+    "nodemon": "^3.1.10"
   }
 }
