@@ -12,14 +12,20 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: var(--green-50);
   color: var(--text-main);
+    padding-top: 60px;
 }
 
 nav {
   background: var(--green-600);
   color: var(--text-light);
-  padding: 0.5rem;
-  position: relative;
+  padding: 0.5rem 1rem;
+  position: fixed; /* 👈 κάνει το navbar "κολλημένο" */
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+   box-sizing: border-box;
 }
 
 .nav-container {
@@ -68,10 +74,15 @@ nav {
   font-weight: bold;
 }
 
+
+
 .nav-links.show {
   display: flex;
 }
-
+.nav-links li {
+  list-style: none;
+  margin-right: 1rem;
+}
 @media (min-width: 768px) {
   .burger {
     display: none;
@@ -186,21 +197,51 @@ nav {
   border-color: var(--green-600);
   box-shadow: 0 0 5px var(--green-300);
 }
-.contact-form button {
-  width: 100%;
+
+button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--green-600); /* 🌿 Light green */
+  color: var(--text-main);      /* 🟢 Σκούρο πράσινο κείμενο */
   padding: 12px;
-  background: var(--primary);
-  color: white;
   border: none;
   border-radius: 6px;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-.contact-form button:hover {
-  background: var(--primary-hover);
+
+button:hover {
+  background: var(--green-700); /* 🌱 Darker green */
+  color: var(--text-light);     /* ⚪ Λευκό κείμενο για καλύτερη αντίθεση */
 }
+
+button:disabled {
+  background: #cccccc;
+  color: #666666;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -217,4 +258,17 @@ footer {
 footer a {
   color: #fff;
   text-decoration: underline;
+}
+
+.nav-links {
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+.nav-links.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }

@@ -1,6 +1,5 @@
 <% layout('layout') -%>
 
-
 <header class="hero">
   <h1>Καλωσήρθες στο SiteSavvy</h1>
   <p>Δημιούργησε την online παρουσία που αξίζει η επιχείρησή σου.</p>
@@ -27,7 +26,7 @@
 
 <section class="contact-container" id="contact">
   <form id="appointmentForm" class="contact-form">
-    <h2>📅 Κλείσε Ραντεβού</h2>
+    <h2>📅Επικοινωνήστε Μαζί Μας</h2>
     <label for="name">Όνομα</label>
     <input type="text" name="name" id="name" placeholder="Το όνομά σου" required>
 
@@ -40,7 +39,9 @@
     <label for="phone">Τηλέφωνο</label>
     <input type="tel" name="phone" id="phone" placeholder="Το τηλέφωνό σου" required>
 
-    <button type="submit" class="cta-btn" style="background-color: var(--green-600); color: white;">✅ Επικοινωνίασε Μαζί Μας
+    <button id="submitBtn" type="submit">
+      <span class="btn-text">📩 Αποστολή</span>
+      <span class="loader" style="display: none;"></span>
     </button>
   </form>
 </section>
@@ -52,4 +53,24 @@
   </div>
 </footer>
 
-<script src="/scripts/contact.js" defer></script>
+<script>
+  document.getElementById("submitBtn").addEventListener("click", function (e) {
+    e.preventDefault(); // Εμποδίζει την υποβολή για demo
+
+    const btn = this;
+    const text = btn.querySelector(".btn-text");
+    const loader = btn.querySelector(".loader");
+
+    text.textContent = "Αποστολή...";
+    loader.style.display = "inline-block";
+    btn.disabled = true;
+
+    // DEMO καθυστέρηση αποστολής
+    setTimeout(() => {
+      text.textContent = "📩 Επικοινωνήστε Μαζί Μας";
+      loader.style.display = "none";
+      btn.disabled = false;
+      alert("✅ Το μήνυμα στάλθηκε με επιτυχία!");
+    }, 3000);
+  });
+</script>
