@@ -1,6 +1,55 @@
 <% layout('layout') -%>
 
-<section class="hero">
+
+<header class="hero">
   <h1>Καλωσήρθες στο SiteSavvy</h1>
-  <p>Δημιούργησε την επαγγελματική σου παρουσία online σήμερα!</p>
+  <p>Δημιούργησε την online παρουσία που αξίζει η επιχείρησή σου.</p>
+  <a href="#contact" class="cta-btn">🚀 Ξεκίνα Τώρα</a>
+</header>
+
+<section class="features" id="services">
+  <h2>Τι σου προσφέρουμε</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>🔧 Κατασκευή Ιστοσελίδας</h3>
+      <p>Σύγχρονα, responsive websites για κάθε επαγγελματία.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📧 Επαγγελματικό Email</h3>
+      <p>Δικό σου email με domain για μεγαλύτερη αξιοπιστία.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📍 Google Προβολή</h3>
+      <p>Σε βρίσκουν όταν σε ψάχνουν, με SEO και Google setup.</p>
+    </div>
+  </div>
 </section>
+
+<section class="contact-container" id="contact">
+  <form id="appointmentForm" class="contact-form">
+    <h2>📅 Κλείσε Ραντεβού</h2>
+    <label for="name">Όνομα</label>
+    <input type="text" name="name" id="name" placeholder="Το όνομά σου" required>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Το email σου" required>
+
+    <label for="message">Μήνυμα</label>
+    <textarea name="message" id="message" placeholder="Γράψε το μήνυμά σου..." required></textarea>
+
+    <label for="phone">Τηλέφωνο</label>
+    <input type="tel" name="phone" id="phone" placeholder="Το τηλέφωνό σου" required>
+
+    <button type="submit" class="cta-btn" style="background-color: var(--green-600); color: white;">✅ Επικοινωνίασε Μαζί Μας
+    </button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 SiteSavvy. Με αγάπη από την Ελλάδα 🇬🇷</p>
+    <p><a href="mailto:info@sitesavvy.gr">info@sitesavvy.gr</a></p>
+  </div>
+</footer>
+
+<script src="/scripts/contact.js" defer></script>
