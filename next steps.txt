@@ -1,0 +1,24 @@
+✅ 1. Unsubscribe σύστημα
+Route /unsubscribe?token=xxxxx
+
+Διαγραφή από το newsletter.csv
+
+Επιβεβαίωση “Επιτυχής απεγγραφή”
+
+✅ 2. Admin Panel για τις εγγραφές
+Προστατευμένη σελίδα /admin/newsletter
+
+Εμφάνιση όλων των email (με ημερομηνία και token)
+
+Εξαγωγή CSV, mass delete κ.ά.
+
+✅ 3. Double Opt-In (προαιρετικά)
+Αν θες ultra-GDPR: αποθήκευση μόνο αν επιβεβαιώσει με email
+
+✅ 4. Προγραμματισμένες αποστολές
+Scheduled emails (π.χ. 1 email/βδομάδα)
+
+Χρήση εργαλείων όπως cron, bull, ή τρίτα APIs
+
+✅ 5. Branded Email Template (ποιοτικό)
+Μπορώ να σου ετοιμάσω ένα όμορφο HTML email όπως:
