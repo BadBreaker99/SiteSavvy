@@ -26,5 +26,4 @@ router.get('/admin/verify', (req, res) => {
   });
 });
 
-
 module.exports = router;

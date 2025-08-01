@@ -70,6 +70,15 @@ router.post('/admin/register', async (req, res) => {
   try {
     console.log('🧪 Τύπος του sendVerificationEmail:', typeof sendVerificationEmail);
 
+    console.log('📦 .env:', {
+  SMTP_HOST: process.env.SMTP_HOST,
+  SMTP_USER: process.env.SMTP_USER,
+  SMTP_PORT: process.env.SMTP_PORT,
+  APP_BASE_URL: process.env.APP_BASE_URL
+});
+console.log('📤 Κλήση sendVerificationEmail για:', email);
+console.log('🔗 Token:', verification_token);
+
     await sendVerificationEmail(email, verification_token);
     res.render('admin/register', {
       title: 'Εγγραφή Admin',

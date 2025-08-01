@@ -41,19 +41,27 @@ transporter.verify((error, success) => {
   }
 });
 
-
 async function sendVerificationEmail(email, token) {
   const verificationLink = `${process.env.APP_BASE_URL}/admin/verify?token=${token}`;
+  console.log('✉️ Ετοιμάζουμε αποστολή email σε:', email);
+  console.log('🔗 Verification Link:', verificationLink);
 
-  return transporter.sendMail({
-    to: email,
-    subject: 'Επιβεβαίωση Λογαριασμού Admin',
-    html: `
-      <h2>Καλωσήρθες!</h2>
-      <p>Κάνε κλικ παρακάτω για να επιβεβαιώσεις τον λογαριασμό σου:</p>
-      <a href="${verificationLink}">${verificationLink}</a>
-    `
-  });
+  try {
+    const info = await transporter.sendMail({
+      to: email,
+      from: `"SiteSavvy" <${process.env.SMTP_USER}>`,
+      subject: 'Επιβεβαίωση Λογαριασμού Admin',
+      html: `
+        <h2>Καλωσήρθες!</h2>
+        <p>Κάνε κλικ παρακάτω για να επιβεβαιώσεις τον λογαριασμό σου:</p>
+        <a href="${verificationLink}">${verificationLink}</a>
+      `
+    });
+
+    console.log('📤 Email info:', info);
+  } catch (err) {
+    console.error('❌ SendMail Error:', err);
+  }
 }
 
 module.exports = {
