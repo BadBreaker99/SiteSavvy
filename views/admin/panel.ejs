@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel – Συνδρομητές</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { padding: 10px; border: 1px solid #ccc; }
+    th { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>📋 Συνδρομητές Newsletter</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Συγκατάθεση</th>
+        <th>Ημερομηνία</th>
+        <th>Ενέργεια</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.consent %></td>
+          <td><%= new Date(user.timestamp).toLocaleString() %></td>
+          <td>
+            <form method="POST" action="/admin/unsubscribe" style="display:inline;">
+              <input type="hidden" name="token" value="<%= user.token %>" />
+              <button type="submit">❌ Διαγραφή</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <p><a href="/admin/logout">Αποσύνδεση</a></p>
+</body>
+</html>

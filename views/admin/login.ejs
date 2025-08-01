@@ -1,0 +1,9 @@
+<% layout('layouts/main') -%>
+
+<h2>🔐 Σύνδεση Admin</h2>
+
+<form method="POST" action="/admin/login">
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="password" name="password" placeholder="Κωδικός" required />
+  <button type="submit">Σύνδεση</button>
+</form>

@@ -18,6 +18,12 @@ router.post('/newsletter', async (req, res) => {
   if (!email || !gdpr_consent) {
     return res.status(400).send('Απαραίτητη συγκατάθεση και email.');
   }
+  const existingLines = fs.readFileSync(CSV_PATH, 'utf8').split('\n');
+const emailExists = existingLines.some(line => line.startsWith(email + ','));
+
+if (emailExists) {
+  return res.status(400).send('Αυτό το email είναι ήδη εγγεγραμμένο.');
+}
 
   const token = crypto.randomUUID();
   const line = `${email},yes,${new Date().toISOString()},${token}\n`;

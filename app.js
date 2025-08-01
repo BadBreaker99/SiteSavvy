@@ -4,6 +4,10 @@ const templates = require('./data/templates');
 require('dotenv').config();
 const sendAppointment = require('./routes/send-appointment');
 
+const { v4: uuidv4 } = require('uuid');
+const id = uuidv4();
+
+
 const newsletterRoutes = require('./routes/api/newsletter');
 const unsubscribeRoute = require('./routes/api/unsubscribe');
 
@@ -19,6 +23,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/', require('./routes/admin/register'));
+app.use('/', require('./routes/admin/verify'));
+
 app.engine('ejs', ejsMate); // ✅ σωστό engine τώρα
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +33,21 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+const session = require('express-session');
+
+app.use(session({
+  secret: '3159', // ⚠️ άλλαξέ το!
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 30 // 30 λεπτά
+  }
+}));
+
+app.use('/', require('./routes/admin/panel'));
+app.use('/', require('./routes/admin/unsubscribe'));
+
+
 app.get('/templates', (req, res) => res.render('templates', { title: 'Templates', templates }));
 app.use('/', unsubscribeRoute);
 app.use('/', newsletterRoutes);

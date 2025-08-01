@@ -33,3 +33,17 @@ export function sendConfirmationEmail(to, token) {
     `,
   });
 }
+async function sendVerificationEmail(email, token) {
+  const verificationLink = `https://yourdomain.com/admin/verify?token=${token}`;
+
+  await transporter.sendMail({
+    to: email,
+    subject: 'Επιβεβαίωση Λογαριασμού Admin',
+    html: `
+      <h2>Καλωσήρθες!</h2>
+      <p>Κάνε κλικ παρακάτω για να επιβεβαιώσεις τον λογαριασμό σου:</p>
+      <a href="${verificationLink}">${verificationLink}</a>
+    `
+  });
+}
+
