@@ -39,13 +39,3 @@ module.exports = {
     `).run(newHash, token);
   }
 };
-function findByToken(token) {
-  return db.prepare(`SELECT * FROM admins WHERE verification_token = ?`).get(token);
-}
-
-function verifyAdmin(token) {
-  return db.prepare(`
-    UPDATE admins SET verified = 1, verification_token = NULL
-    WHERE verification_token = ?
-  `).run(token);
-}

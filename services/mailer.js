@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
+const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export function sendConfirmationEmail(to, token) {
+function sendConfirmationEmail(to, token) {
   const baseUrl = process.env.APP_BASE_URL;
 
   return transporter.sendMail({
@@ -33,10 +33,19 @@ export function sendConfirmationEmail(to, token) {
     `,
   });
 }
-async function sendVerificationEmail(email, token) {
-  const verificationLink = `https://yourdomain.com/admin/verify?token=${token}`;
+transporter.verify((error, success) => {
+  if (error) {
+    console.error('SMTP verification failed:', error);
+  } else {
+    console.log('✅ SMTP is ready to send emails');
+  }
+});
 
-  await transporter.sendMail({
+
+async function sendVerificationEmail(email, token) {
+  const verificationLink = `${process.env.APP_BASE_URL}/admin/verify?token=${token}`;
+
+  return transporter.sendMail({
     to: email,
     subject: 'Επιβεβαίωση Λογαριασμού Admin',
     html: `
@@ -47,3 +56,7 @@ async function sendVerificationEmail(email, token) {
   });
 }
 
+module.exports = {
+  sendConfirmationEmail,
+  sendVerificationEmail
+};

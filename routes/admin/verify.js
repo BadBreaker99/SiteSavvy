@@ -6,19 +6,25 @@ router.get('/admin/verify', (req, res) => {
   const { token } = req.query;
 
   if (!token) {
-    return res.status(400).send('Λείπει το verification token.');
+    return res.status(400).render('admin/verify-fail', {
+      title: 'Αποτυχία Επαλήθευσης',
+      message: '❌ Λείπει το verification token.'
+    });
   }
 
   const admin = findByToken(token);
   if (!admin) {
-    return res.status(400).send('Μη έγκυρο ή ληγμένο token.');
+    return res.status(400).render('admin/verify-fail', {
+      title: 'Αποτυχία Επαλήθευσης',
+      message: '❌ Μη έγκυρο ή ληγμένο token.'
+    });
   }
 
   verifyAdmin(token);
-  res.send(`
-    <h2>✅ Ο λογαριασμός σου ενεργοποιήθηκε!</h2>
-    <p>Μπορείς τώρα να <a href="/admin/login">συνδεθείς</a>.</p>
-  `);
+  return res.render('admin/verify-success', {
+    title: 'Επιβεβαίωση Ολοκληρώθηκε'
+  });
 });
+
 
 module.exports = router;

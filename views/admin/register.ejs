@@ -1,10 +1,18 @@
-<form action="/admin/register" method="POST">
+<% layout('layout') -%>
+
+<h2>🆕 Εγγραφή Admin</h2>
+
+<% if (typeof message !== 'undefined' && message) { %>
+  <%= message %>
+ <% } %>
+
+<form method="POST" action="/admin/register">
   <input type="email" name="email" placeholder="Email" required />
   <input type="password" name="password" placeholder="Κωδικός" required />
 
   <label>
     <input type="checkbox" name="gdpr_consent" required />
-    Αποδέχομαι την <a href="/privacy-policy" target="_blank">Πολιτική Απορρήτου</a>
+    Αποδέχομαι την <a href="/privacy-policy" target="_blank">πολιτική απορρήτου</a>
   </label>
 
   <button type="submit">Εγγραφή</button>

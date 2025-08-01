@@ -43,9 +43,13 @@ app.use(session({
     maxAge: 1000 * 60 * 30 // 30 λεπτά
   }
 }));
+app.use('/', require('./routes/admin/login'));
 
 app.use('/', require('./routes/admin/panel'));
 app.use('/', require('./routes/admin/unsubscribe'));
+app.get('/admin/register', (req, res) => {
+  res.render('admin/register', { title: 'Εγγραφή Admin' });
+});
 
 
 app.get('/templates', (req, res) => res.render('templates', { title: 'Templates', templates }));
@@ -69,7 +73,7 @@ app.get('/', (req, res) => {
   });
 });
 app.use(sendAppointment);
-
+app.use('/', require('./routes/admin/register'));
 console.log('[BASE_URL]', process.env.APP_BASE_URL);
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
